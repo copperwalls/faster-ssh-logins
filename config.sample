@@ -1,0 +1,66 @@
+# Sample ~/.ssh/config file. `man 5 ssh_config` for details
+#
+# See https://github.com/copperwalls/faster-ssh-logins on how to
+#   automagically generate links for each Hosts on this file
+#
+
+# -- apple -----------------------------------------------------------
+# ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
+# --------------------------------------------------------------------
+Host apple
+  HostName 127.0.0.1
+  ForwardAgent yes
+
+# -- cranberry -------------------------------------------------------
+# ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
+# --------------------------------------------------------------------
+Host cranberry
+  HostName 127.0.0.1
+  LocalForward 5984 localhost:5984
+
+# -- mango -----------------------------------------------------------
+# ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
+# --------------------------------------------------------------------
+Host mango
+  HostName mango.example.com
+  RemoteForward 10001 127.0.0.1:10101
+
+# -- nashi -----------------------------------------------------------
+# ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
+# --------------------------------------------------------------------
+Host nashi
+  HostName 127.0.0.1
+  IdentitiesOnly no
+  PasswordAuthentication yes
+
+# -- orange ----------------------------------------------------------
+# ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
+# --------------------------------------------------------------------
+Host orange
+  HostName 127.0.0.1
+  Port 54321
+  IdentityFile /Users/ed.o/.ssh/my_other_secret_id.rsa
+
+# -- default ---------------------------------------------------------
+# ov:er:ri:de:th:is:de:fa:ul:ts:et:ti:ng:sa:bo:ve
+# --------------------------------------------------------------------
+Host *
+  AddressFamily inet
+  BatchMode no
+  CheckHostIP yes
+  Compression yes
+  ControlMaster auto
+  ControlPath /Users/ed.o/.ssh/sockets/%r@%h:%p
+  ForwardAgent no
+  ForwardX11 no
+  ForwardX11Trusted no
+  HashKnownHosts yes
+  IdentitiesOnly yes
+  IdentityFile /Users/ed.o/.ssh/my_secret_id.rsa
+  PasswordAuthentication no
+  Port 12345
+  Protocol 2
+  StrictHostKeyChecking ask
+  User pwned
+  UserKnownHostsFile /Users/ed.o/.ssh/pwned_hosts
+
