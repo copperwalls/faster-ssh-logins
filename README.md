@@ -3,7 +3,7 @@ faster-ssh-logins
 
 Turbo fast SSH logins.
 
-Type “ssh hostname” no more. Just the hostname or a shortened version of it and you’ll be logged in to your SSH server in no time!
+Type “ssh hostname” no more! Just the hostname or a shortened version of it and you’ll be logged in to your SSH server in no time!
 
 In other words: I don’t like typing long SSH commands. If I can shorten it, I will :)
 
@@ -65,9 +65,9 @@ TIP: Change the value of “SHORTENED_NAME_LENGTH” inside the script to change
 
 Remove the link first if you want to recreate it.
 
-    test      <- SKIPPED: Link/command with the same name exists!>
+    test      <- SKIPPED: Link/command with the same name exists!
 
-System command. Can’t make a link for it. Edit your config file and change the value of “Host” to another name. Then run the script again.
+System command. Can’t make a link for this Host. Edit your config file and change the value of “Host” to another name. Then run the script again.
 
     grep: /Users/ed.o/.ssh/config: No such file or directory
 
