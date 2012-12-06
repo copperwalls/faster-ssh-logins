@@ -27,7 +27,7 @@ declare -x CONFIG_PATH_FILENAME="$HOME/.ssh/config"
 # Alternative config file pass as the first parameter (full path)
 # e.g., ./create-ssh-hosts-links.sh /path/to/other-config-file-here
 # NOTE: Not meant to work with path/filenames with spaces in it
-[ $# -ge 1 ] && [ -f "$1" ] && CONFIG_PATH_FILENAME="$1"
+[[ $# -ge 1 ]] && [[ -f "$1" ]] && CONFIG_PATH_FILENAME="$1"
 
 # The script we’re going to create (where the links will point to)
 declare -rx SSH_FOR_SCRIPT=$HOME/bin/ssh-for-$(basename $CONFIG_PATH_FILENAME)
@@ -40,7 +40,7 @@ declare -rx SSH_HOSTS=$(grep ^Host "$CONFIG_PATH_FILENAME" | sed '$d' | sort | \
     awk -F' ' '{ print $NF }')
 
 # See if we extracted the Host(s) properly; abort otherwise
-if [ -z "$SSH_HOSTS" ]; then
+if [[ -z "$SSH_HOSTS" ]]; then
 cat <<EOE
 
 Error: No Host(s) found in '$CONFIG_PATH_FILENAME'
@@ -62,7 +62,7 @@ do
 done
 
 # If it doesn’t exist, create the directory where we’ll put our links
-[ -d "$SSH_HOSTS_ALIAS_DIR" ] || mkdir -p "$SSH_HOSTS_ALIAS_DIR"
+[[ -d "$SSH_HOSTS_ALIAS_DIR" ]] || mkdir -p "$SSH_HOSTS_ALIAS_DIR"
 
 # Our new script—where all the magic happens :)
 (
@@ -89,7 +89,7 @@ LINKS_TO=\$(basename \$(readlink \$0))
 
 # If the link is just a shortened version of a hostname, we’ll use the original
 # instead since it’s the one which points to an entry in the ssh config file
-[ \${LINKS_TO:0:8} == 'ssh-for-' ] || SSH_HOST=\$LINKS_TO
+[[ \${LINKS_TO:0:8} == 'ssh-for-' ]] || SSH_HOST=\$LINKS_TO
 
 # Got the hostname; now we can connect
 $NEW_SCRIPT_LINE
@@ -98,13 +98,13 @@ EOE
 ) > $SSH_FOR_SCRIPT
 
 # Make sure the new script is executable
-[ -x $SSH_FOR_SCRIPT ] || chmod +x $SSH_FOR_SCRIPT
+[[ -x $SSH_FOR_SCRIPT ]] || chmod +x $SSH_FOR_SCRIPT
 
 # Function to call to find best suffix available
 find_best_suffix () {
     # Check whether there isn’t any command collision
     which $1 > /dev/null 2>&1
-    [ $? -ne 0 ] && [ ! -h "$SSH_HOSTS_ALIAS_DIR/$1" ] && return 0
+    [[ $? -ne 0 ]] && [[ ! -h "$SSH_HOSTS_ALIAS_DIR/$1" ]] && return 0
     # Collision! Let’s find the best suffix for the new link/command
     let SUFFIX=2
     while true; do

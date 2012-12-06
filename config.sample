@@ -7,28 +7,28 @@
 # -- apple -----------------------------------------------------------
 # ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
 # --------------------------------------------------------------------
-Host apple
+Host apple a i
   HostName 127.0.0.1
   ForwardAgent yes
 
 # -- cranberry -------------------------------------------------------
 # ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
 # --------------------------------------------------------------------
-Host cranberry
+Host cranberry c
   HostName 127.0.0.1
   LocalForward 5984 localhost:5984
 
 # -- mango -----------------------------------------------------------
 # ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
 # --------------------------------------------------------------------
-Host mango
+Host mango m
   HostName mango.example.com
   RemoteForward 10001 127.0.0.1:10101
 
 # -- nashi -----------------------------------------------------------
 # ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
 # --------------------------------------------------------------------
-Host nashi
+Host nashi n
   HostName 127.0.0.1
   IdentitiesOnly no
   PasswordAuthentication yes
@@ -36,7 +36,7 @@ Host nashi
 # -- orange ----------------------------------------------------------
 # ed:os:sh:f1:ng:er:pr:1n:th:er:ec:oo:li:de:ae:h?
 # --------------------------------------------------------------------
-Host orange
+Host orange o
   HostName 127.0.0.1
   Port 54321
   IdentityFile /Users/ed.o/.ssh/my_other_secret_id.rsa
@@ -63,4 +63,5 @@ Host *
   StrictHostKeyChecking ask
   User pwned
   UserKnownHostsFile /Users/ed.o/.ssh/pwned_hosts
+  VisualHostKey yes
 
