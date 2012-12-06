@@ -49,7 +49,7 @@ Perfect. Now you can just type “apple” or “app” to access the “apple�
 
 Same as above.
 
-    fig       <- Created. But no shorter name (it is already short)>
+    fig       <- Created. But no shorter name (it is already short)
 
 Default length for “shorter name” is three characters.
 
@@ -58,6 +58,8 @@ Default length for “shorter name” is three characters.
 Obviously, “[man](http://en.wikipedia.org/wiki/Man_page)” is already taken. Type “man2” instead.
 
 TIP: Change the value of “SHORTENED_NAME_LENGTH” inside the script to change the length of the “shorter name”.
+
+BONUS TIP: Add your own “shorter names” in the “Host” line of your [~/.ssh/config](http://www.openbsd.org/cgi-bin/man.cgi?query=ssh_config) file.
 
 ### Errors and Warnings ###
 
@@ -83,7 +85,7 @@ Included Files
 --------------
 
 - create-ssh-hosts-links.sh — The script and links generator (Bash script)
-- config.sample — Sample ~/.ssh/config file; `man 5 ssh_config` for details
+- config.sample — Sample [~/.ssh/config](http://www.openbsd.org/cgi-bin/man.cgi?query=ssh_config) file; `man 5 ssh_config` for details
 - README.md — This very document
 - MIT-License.txt — License file (Contents also found at end of this document)
 
