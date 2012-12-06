@@ -36,8 +36,8 @@ declare -rx SSH_FOR_SCRIPT=$HOME/bin/ssh-for-$(basename $CONFIG_PATH_FILENAME)
 declare -rx NEW_SCRIPT_LINE="ssh -F '$CONFIG_PATH_FILENAME' \$SSH_HOST \$*"
 
 # Extract all the names of the Host(s) found in the config file (except last)
-declare -rx SSH_HOSTS=$(grep ^Host "$CONFIG_PATH_FILENAME" | sed '$d' | sort | \
-    awk -F' ' '{ print $NF }')
+declare -rx SSH_HOSTS=$(grep ^Host "$CONFIG_PATH_FILENAME" | sed '$d' | \
+    tr ' ' '\n' | sort | grep -v Host)
 
 # See if we extracted the Host(s) properly; abort otherwise
 if [[ -z "$SSH_HOSTS" ]]; then
